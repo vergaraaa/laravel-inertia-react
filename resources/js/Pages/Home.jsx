@@ -1,11 +1,21 @@
-import { Link } from "@inertiajs/react";
-
-export default function Home({ name }) {
+export default function Home({ posts }) {
     return (
         <>
-            <div className="title">Home {name}</div>
+            <div className="title">Hello</div>
 
-            <Link preserveScroll href="/" className="block mt-[1000px] title">{new Date().toLocaleTimeString()}</Link>
+            <div>
+                {
+                    posts.map((post) => (
+                        <div key={post.id} className="p-4 border-b">
+                            <div className="text-sm text-slate-600">
+                                <span>Posted on: <span>{new Date(post.created_at).toLocaleString()}</span></span>
+                            </div>
+
+                            <p className="font-medium">{post.body}</p>
+                        </div>
+                    ))
+                }
+            </div>
         </>
     )
 }
