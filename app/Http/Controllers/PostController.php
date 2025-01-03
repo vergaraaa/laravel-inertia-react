@@ -49,7 +49,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return inertia("Show", [
+            "post" => $post
+        ]);
     }
 
     /**
