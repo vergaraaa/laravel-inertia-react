@@ -8,11 +8,11 @@ export default function Home({ posts }) {
     const { component } = usePage();
 
     const [flashMsg, setFlashMsg] = useState(flash.message);
-
-    console.log(usePage().props);
+    const [successFlashMsg, setSuccessFlashMsg] = useState(flash.success);
 
     setTimeout(() => {
         setFlashMsg(null);
+        setSuccessFlashMsg(null);
     }, 2000);
 
     return (
@@ -24,6 +24,12 @@ export default function Home({ posts }) {
             {flashMsg &&
                 (<div className="absolute top-24 right-6 bg-rose-500 p-2 rounded-md shadow-lg text-sm text-white">
                     {flashMsg}
+                </div>)
+            }
+
+            {successFlashMsg &&
+                (<div className="absolute top-24 right-6 bg-green-500 p-2 rounded-md shadow-lg text-sm text-white">
+                    {successFlashMsg}
                 </div>)
             }
 

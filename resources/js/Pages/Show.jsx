@@ -1,4 +1,4 @@
-import { useForm } from "@inertiajs/react"
+import { Link, useForm } from "@inertiajs/react"
 import { useRoute } from "../../../vendor/tightenco/ziggy";
 
 export default function Show({ post }) {
@@ -27,6 +27,8 @@ export default function Show({ post }) {
                 <p className="font-medium">{post.body}</p>
 
                 <div className="flex items-center justify-end gap-2">
+                    <Link href={route("posts.edit", post)} className="bg-green-500 rounded-md text-sm px-4 py-1 text-white">Edit</Link>
+
                     <form onSubmit={onSubmit}>
                         <button type="submit" className="bg-red-500 rounded-md text-sm px-4 py-1 text-white">Delete</button>
                     </form>
